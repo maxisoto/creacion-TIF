@@ -1,0 +1,80 @@
+:root {
+    --pink-background: linear-gradient(135deg, #ffcccc, #ffe6e6);
+    --blue-background: linear-gradient(135deg, #434e5c, #1a5580);
+    --choice-background: linear-gradient(135deg, #e98686, #c45050);
+}
+
+.pinkBackground {
+    background: var(--pink-background);
+}
+
+.blueBackground {
+    background: var(--blue-background);
+}
+
+.choice.pinkBackground {
+    --choice-background: linear-gradient(135deg, #ff8c8c, #c45050);
+}
+
+.choice.blueBackground{
+    --choice-background: linear-gradient(135deg, #162133, #162738);
+}
+
+
+.menu {
+    width: 10rem;
+    color: white;
+    text-align: center;
+    height: 100vh;
+    overflow-y: auto;
+    left: 0;
+}
+.menu > img{
+        height: 4rem;
+        padding: 10px;
+        margin-right: auto;
+        border-radius: 50%;
+    };
+hr {
+    border: 1px solid gray;
+    width: 90%;
+    margin: 10px auto;
+}
+
+.choice {
+    display: flex;
+    padding: 1px;
+    margin-bottom: .2rem;
+    align-items: center;
+    /* background: linear-gradient(135deg, #e98686, #c45050); */
+    height: 2rem;
+    cursor: pointer;
+    font-size:.9rem;
+    margin-left:1rem;
+    gap: 1rem;
+    transition: 100ms color ease-in;
+    background: var(--choice-background);
+}
+.choice:hover{
+        color: black;
+    }
+
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    margin-left: .2rem;
+
+}
+.menu-list > span {
+    font-size:.9rem;
+}
+
+.playlist {
+    margin: 5px 10px;
+    font-size: 1rem;
+    cursor: default;
+}
+
+.profileImg > img {
+    border-radius: 50%;
+}

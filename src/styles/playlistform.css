@@ -1,0 +1,13 @@
+:root {
+    --pink-background: linear-gradient(135deg, #ffcccc, #ffe6e6);
+    --blue-background: linear-gradient(135deg, #434e5c, #1a5580);
+    --choice-background: linear-gradient(135deg, #e98686, #c45050);
+}
+
+form.pinkBackground {
+    background: var(--pink-background);
+}
+
+form.blueBackground {
+    background: var(--blue-background);
+}

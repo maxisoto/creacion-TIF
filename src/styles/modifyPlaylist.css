@@ -1,0 +1,40 @@
+.modify-playlist-container {
+    background: linear-gradient(135deg, #e98686, #c45050);
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+}
+
+.modify-playlist-title {
+    color: white;
+}
+
+.modify-playlist-card {
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 8px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.modify-playlist-card .card-content {
+    padding: 10px;
+    overflow: hidden;
+}
+
+.modify-playlist-card .card-content .title {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+.modify-playlist-card .card-content .subtitle {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    font-size: .85rem;
+}
