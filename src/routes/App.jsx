@@ -110,6 +110,6 @@ const App = createBrowserRouter([
             },
         ],
     },
-], {basename: "/alfa-music/"});
+], {basename: "/music-life/"});
 
 export default App;
