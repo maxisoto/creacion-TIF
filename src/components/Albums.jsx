@@ -60,7 +60,7 @@ export default function Albums() {
   return (
     <>
     <div className={`containerT ${
-        theme === 'pink'
+        theme === 'blue'
        ? 'pinkBackground'
         : 'blueBackground'
     }`}>
