@@ -118,14 +118,18 @@ export default function Artists() {
                                     onClick={handlePrevPage}
                                     disabled={page === 1}
                                 >
-                                    Prev
+                                   <span class="icon">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </span>
                                 </button>
                                 <button
                                     className="button is-link"
                                     onClick={handleNextPage}
                                     disabled={!hasNextPage}
                                 >
-                                    Next
+                                    <span class="icon">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
                                 </button>
                             </div>
                         </div>
