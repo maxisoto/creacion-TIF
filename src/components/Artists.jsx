@@ -30,7 +30,7 @@ export default function Artists() {
             `http://sandbox.academiadevelopers.com/harmonyhub/artists/?page=${pageNumber}&page_size=4`
         );
         if (!response.ok) {
-            throw new Error("No se pudieron cargar los artistas");
+            throw new Error("Error cargando los artistas...");
         }
         const data = await response.json();
         setArtists(data.results || []);
@@ -60,7 +60,7 @@ export default function Artists() {
   return (
     <>
             <div className={`containerT ${
-                theme === 'pink'
+                theme === 'blue'
                    ? 'pinkBackground'
                     : 'blueBackground'
             }`}>

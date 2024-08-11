@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import useTheme from "../hooks/useTheme";
+import "../styles/navbar.css"
 
 export default function Tabs() {
     const { theme } = useTheme();
@@ -7,34 +8,13 @@ export default function Tabs() {
     const currentPath = location.pathname;
 
     return (
-        <div 
-        // className={`${
-        //     theme === 'pink'
-        //     ? 'pinkBackground'
-        //     : 'blueBackground'
-        // }`}
-        >
-            <p className="panel-tabs">
-                <Link 
-                    to="/" 
-                    className={currentPath === "/" ? "is-active" : ""}
-                >
-                    Songs
-                </Link>
-                <Link 
-                    to="/albums" 
-                    className={currentPath === "/albums" ? "is-active" : ""}
-                >
-                    Albums
-                </Link>
-                <Link 
-                    to="/artists" 
-                    className={currentPath === "/artists" ? "is-active" : ""}
-                >
-                    Artists
-                </Link>
-            </p>
-        </div>
-        
-    );
+
+//barra de navegacion
+
+<div className="navbar">
+<Link to="/" className={currentPath === "/" ? "is-active" : ""}>Canciones</Link>
+<Link to="/albums" className={currentPath === "/albums" ? "is-active" : ""}>Albumes</Link>
+<Link to="/artists" className={currentPath === "/artists" ? "is-active" : ""}>Artistas</Link> 
+</div>
+  );
 }
