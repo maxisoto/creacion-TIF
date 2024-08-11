@@ -1,5 +1,5 @@
 .background-image {
-    display: flex;
+    display: outside;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
