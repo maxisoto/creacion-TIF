@@ -40,7 +40,7 @@ export default function Navbar({appName}) {
                             ].join(" navbar-item")
                         }
                     >
-                        Inicio
+                       <p class="title is-4 is-spaced">Inicio</p>
                     </NavLink>
                     <NavLink
                         to="/about"
@@ -55,7 +55,7 @@ export default function Navbar({appName}) {
                             ].join(" navbar-item")
                         }
                     >
-                        Nosotros
+                         <p class="title is-4 is-spaced">Nosotros</p>
                     </NavLink>
                   
                 </div>
