@@ -1,7 +1,7 @@
 :root {
-    --pink-background: linear-gradient(135deg, #ffcccc, #ffe6e6);
+    --pink-background: linear-gradient(135deg, #5e5b5b, #404654);
     --blue-background: linear-gradient(135deg, #434e5c, #1a5580);
-    --choice-background: linear-gradient(135deg, #e98686, #c45050);
+    --choice-background: linear-gradient(135deg, #2b2828, #504e4e);
 }
 
 form.pinkBackground {

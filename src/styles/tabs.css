@@ -25,7 +25,7 @@
 /* Estilos básicos de los enlaces de pestañas */
 .tab-link {
     text-decoration: none;
-    color: #e02828;
+    color: #e4dede;
     margin-right: 15px;
     padding: 8px 16px;
     border-radius: 5px;
@@ -36,7 +36,7 @@
 
 /* Efecto al pasar el mouse sobre el enlace */
 .tab-link:hover {
-    background-color: #007bff;
+    background-color: #aac1da;
     color: white;
     box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
     transform: translateY(-3px);
