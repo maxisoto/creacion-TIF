@@ -85,7 +85,7 @@ export default function Songs({ onSelectSong }) {
                 ? 'pinkBackground'
                 : 'blueBackground'
             }`}>
-            <form className= "box has-background-danger-70 search-form "
+            <form className="box has-background-custom search-form"
            
              onSubmit={handleSearch}>
                     <div className="field" >

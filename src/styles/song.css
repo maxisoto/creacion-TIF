@@ -12,6 +12,11 @@
     background: var(--blue-background);
 }
 
+.has-background-custom {
+    background-color: #ffcc00; /* Cambia este valor al color que prefieras */
+  }
+  
+
 .card {
     cursor: pointer;
 }
