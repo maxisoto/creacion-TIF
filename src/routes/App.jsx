@@ -98,7 +98,7 @@ const App = createBrowserRouter([
             },
             {
                 path: "*",
-                element: <h1>Not Found</h1>,
+                element: <h1>Pagina no encontrada</h1>,
             },
             {
                 path: "profile",

@@ -12,7 +12,7 @@ export default function Layout() {
             <AuthProvider>
                 <ThemeProvider>
                     <div>
-                        <Navbar appName={"AlfA Music"} />
+                        <Navbar appName={"Music Life"} />
                     </div>
                     <div>
                         <div className="my-element">
@@ -22,7 +22,7 @@ export default function Layout() {
                 </ThemeProvider>
             </AuthProvider>
             <div className="footer">
-                <FooterBar appName={"AlfA Music"}/>
+                <FooterBar appName={"Music Life"}/>
             </div>
         </>
         

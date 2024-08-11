@@ -1,12 +1,23 @@
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .page-background {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('../components/imgs/LoginBackground.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: linear-gradient(135deg, #667eea, #764ba2, #89f7fe, #66a6ff);
+    background-size: 200% 200%;
+    animation: gradientBackground 15s ease infinite;
     position: relative;
 }
 
@@ -14,17 +25,143 @@
     width: 100%;
     max-width: 35rem;
     padding: 2rem;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    animation: fadeIn 1.5s ease-in-out, scaleUp 1s ease-in-out;
+    position: relative;
+    transition: transform 0.5s ease;
 }
 
-.box.has-background-dark {
-    background-color: #2b2b2b;
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+.form-container:hover {
+    transform: scale(1.05);
 }
 
-/* Input styling */
-.input.has-background-grey-dark {
-    background-color: #3a3a3a;
-    border-color: #4a4a4a;
-    color: #fff; 
+@keyframes scaleUp {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
+
+.button.is-primary {
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border: none;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.button.is-primary:hover {
+    background: linear-gradient(90deg, #89f7fe, #66a6ff);
+    transform: translateY(-2px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.button.is-primary:active {
+    transform: translateY(0);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.icon {
+    transition: transform 0.3s ease;
+}
+
+.input.has-icons-left .icon.is-left {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.input.has-icons-left .icon.is-left:hover {
+    transform: translateY(-50%) scale(1.2);
+}
+
+.show-password-toggle:hover {
+    transform: translateY(-50%) scale(1.1);
+    color: #89f7fe;
+}
+
+.show-password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #2718b1;
+    font-size: 0.9rem;
+}
+
+.show-password-toggle:hover {
+    color: #89f7fe;
+    transform: translateY(-50%) scale(1.1);
+    transition: all 0.3s ease;
+}
+
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
+}
+
+.error-message {
+    color: #ff6b6b;
+    margin-top: 10px;
+    animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
+    display: inline-block;
+}
+
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.error-message.fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+    color: #ff6b6b;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.error-message.pulse {
+    animation: pulse 1s infinite;
+    color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+

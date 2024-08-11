@@ -7,6 +7,7 @@ function Login() {
     const passwordRef = useRef("");
     const [isError, setIsError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const { login } = useAuth("actions");
     
@@ -58,13 +59,22 @@ function Login() {
         }
     }
 
+    function togglePasswordVisibility() {
+        setIsPasswordVisible(prevState => !prevState);
+    }
+
     return (
         <div className="page-background">
             <div className="form-container">
-                <form id="loginForm" onSubmit={handleSubmit} className="box has-background-dark has-text-white">
+                <form
+                    id="loginForm"
+                    onSubmit={handleSubmit}
+                    className="box has-background-dark has-text-white animated fadeInDown"
+                >
                     <h2 className="title is-4 has-text-centered has-text-white">Inicio de Sesión</h2>
+                    
                     <div className="field">
-                        <label className="label has-text-white">Username</label>
+                        <label className="label has-text-white">Nombre de Usuario</label>
                         <div className="control has-icons-left">
                             <input
                                 className="input has-background-grey-dark has-text-white"
@@ -79,12 +89,13 @@ function Login() {
                             </span>
                         </div>
                     </div>
+                    
                     <div className="field">
-                        <label className="label has-text-white">Password</label>
+                        <label className="label has-text-white">Contraseña</label>
                         <div className="control has-icons-left">
                             <input
                                 className="input has-background-grey-dark has-text-white"
-                                type="password"
+                                type={isPasswordVisible ? "text" : "password"} // Cambio entre texto y contraseña
                                 name="password"
                                 id="password"
                                 required
@@ -93,15 +104,36 @@ function Login() {
                             <span className="icon is-small is-left">
                                 <i className="fas fa-lock"></i>
                             </span>
+                            <span className="show-password-toggle" onClick={togglePasswordVisibility}>
+                                {isPasswordVisible ? "Ocultar" : "Mostrar"} {/* Cambia entre Mostrar y Ocultar */}
+                            </span>
                         </div>
                     </div>
+                    
                     <div className="field">
                         <div className="control">
-                            <button type="submit" className="button is-primary is-fullwidth">
+                            <button
+                                type="submit"
+                                className="button is-primary is-fullwidth animated pulse infinite"
+                            >
                                 Iniciar Sesión
                             </button>
-                            {isLoading && <p>Cargando...</p>}
-                            {isError && <p>Error al cargar los datos.</p>}
+                            {isLoading && (
+                                <p className="animated flash">Estamos verificando sus credenciales...</p>
+                            )}
+                            {isError && (
+                                <p className="error-message shake">
+                                    Error al iniciar sesión. Por favor, inténtalo nuevamente.
+                                </p>
+                            )}
+
+                            {isError && (
+                                <p className="error-message pulse">
+                                    Asegúrate de que tu nombre de usuario y contraseña sean correctos.
+                                </p>
+                            )}
+
+
                         </div>
                     </div>
                 </form>
