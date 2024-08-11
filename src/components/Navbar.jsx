@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import Logo from '../assets/Logointro.jpeg';
+import Logo from '../assets/Logo.jpg';
 import { useAuth } from "../contexts/AuthContext";
 import "../App.css";
 import ToggleTheme from "./ToggleTheme";
@@ -20,12 +20,14 @@ export default function Navbar({appName}) {
                      
                 <div className="navbar-start">
                 <figure className="image is-128x128-center">
-              <img
-                className="is-rounded" 
-                src={Logo}
-                alt="inicioLogo"
-                style={{ height: "100px", width: "100px" }}
-              />
+                <a href="/" id="logo-link">
+                        <img
+                            className="is-rounded" 
+                            src={Logo}
+                            alt="inicioLogo"
+                            style={{ height: "100px", width: "100px" }}      
+                        />
+                </a>
             </figure>
                 <p className="navbar-item">{appName}</p>
                     <NavLink
@@ -38,7 +40,7 @@ export default function Navbar({appName}) {
                             ].join(" navbar-item")
                         }
                     >
-                        Home
+                        Inicio
                     </NavLink>
                     <NavLink
                         to="/about"
@@ -53,7 +55,7 @@ export default function Navbar({appName}) {
                             ].join(" navbar-item")
                         }
                     >
-                        About
+                        Nosotros
                     </NavLink>
                   
                 </div>
