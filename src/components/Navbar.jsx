@@ -62,15 +62,17 @@ export default function Navbar({appName}) {
                 <div className="navbar-end">
                 <div className="navbar-item">
                     <ToggleTheme/>
-                <div className="button is-danger">
+                <div className="button">
                     
                 {isAuthenticated ? (
                     
                      <button
                      onClick={logout}
-                     className="navbar-item button is-danger"
+                     className="button"
                  >
-                     Salir
+                   <span class="icon-text">
+                        <span>Salir</span>
+                    </span>
                  </button>
                 ):(
                     <NavLink

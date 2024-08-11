@@ -81,7 +81,7 @@ function SideBar({playlistUpdated, setPlaylistUpdated, onPlaylistSelect}) {
 
     return (
         <aside className={`menu ${
-            theme === "pink"
+            theme === "blue"
                 ? "pinkBackground"
                 : "blueBackground"
         }`}>
@@ -99,6 +99,38 @@ function SideBar({playlistUpdated, setPlaylistUpdated, onPlaylistSelect}) {
                             </li>
                             <li>
                                 <SideBarChoice title={"Eliminar Playlist"} onClick={handlePlaylistDelete} />
+                            </li>
+                        </ul>
+                    )}
+                </li>
+                <li>
+                    <SideBarChoice title={"Albumes"} />
+                    {isPlaylistExtended && (
+                        <ul>
+                            <li>
+                                <SideBarChoice title={"Crear Album"} />
+                            </li>
+                            <li>
+                                <SideBarChoice title={"Modificar Album"} />
+                            </li>
+                            <li>
+                                <SideBarChoice title={"Eliminar Album"}  />
+                            </li>
+                        </ul>
+                    )}
+                </li>
+                <li>
+                    <SideBarChoice title={"Artistas"} />
+                    {isPlaylistExtended && (
+                        <ul>
+                            <li>
+                                <SideBarChoice title={"Crear Album"} />
+                            </li>
+                            <li>
+                                <SideBarChoice title={"Modificar Album"} />
+                            </li>
+                            <li>
+                                <SideBarChoice title={"Eliminar Album"}  />
                             </li>
                         </ul>
                     )}

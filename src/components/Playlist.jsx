@@ -113,8 +113,8 @@ function Playlist() {
                 ? 'pinkBackground'
                 : 'blueBackground'
             }`}>
+                 <h1 className="title">Canciones de {playlistData.name}</h1>
                 <button className="button is-link mt-5" onClick={handleAddSong}>Agregar canción</button>
-                <h1 className="title">Canciones de {playlistData.name}</h1>
                 <div className="columns is-multiline">
                     {songs.length > 0 ? (
                         songs.map((song) => (
@@ -122,7 +122,7 @@ function Playlist() {
                                 <span className="remove" onClick={() => handleRemoveSong(song.id)}
                                      style={{width:"inherit", margin:"auto"}}
 
-                                    >X</span>
+                                    ><i class="fa a-solid fa-trash"></i></span>
                                 <Card song={song}/>
                             </div>
                         ))
