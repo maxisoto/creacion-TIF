@@ -50,7 +50,7 @@ Sigue estos pasos para instalar y ejecutar la aplicación en tu entorno local:
     npm run dev
     ```
 
-6. Abre tu navegador y navega a `http://localhost:3000` para ver la aplicación en acción.
+6. Abre tu navegador y navega a `http://localhost:5173` para ver la aplicación en acción.
 
 ## Uso
 
