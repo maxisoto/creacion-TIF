@@ -1,7 +1,7 @@
 import Tabs from "./Tabs";
 import SideBar from "../components/SideBar";
 import { useState, useEffect } from "react";
-import imgDefault from "../components/imgs/AT.jpeg";
+import imgDefault from "../components/imgs/fondo5.jpg";
 import useTheme from "../hooks/useTheme";
 
 export default function Albums() {

@@ -4,36 +4,28 @@ import { useEffect } from "react";
 function ProfileImageModal({ isOpen, onClose, userId, onUpload }) {
     const { token } = useAuth("state");
 
-    const handleImageUpload = async (event) => {
+    const handleImageUpload = (event) => {
         event.preventDefault();
         const formData = new FormData();
         formData.append("image", event.target.image.files[0]);
 
-        try {
-            const response = await fetch('/upload', {
-                method: 'POST',
+        onUpload.updateProfileImage(
+            `${import.meta.env.VITE_API_BASE_URL}users/profiles/${userId}/`,
+            {
+                method: "PATCH",
                 headers: {
                     Authorization: `Token ${token}`,
                 },
-                body: formData
-            });
-
-            if (!response.ok) {
-                throw new Error('Error en la subida de la imagen');
+                body: formData,
             }
-
-            const data = await response.json();
-            onUpload.updateProfileImage(data.imageUrl);
-        } catch (error) {
-            console.error('Error al subir la imagen:', error);
-        }
+        );
     };
 
     useEffect(() => {
         if (onUpload.profileImageData) {
             onClose();
         }
-    }, [onUpload.profileImageData, onClose]);
+    }, [onUpload.profileImageData]);
 
     if (!isOpen) return null;
 
