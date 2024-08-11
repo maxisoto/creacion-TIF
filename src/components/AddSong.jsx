@@ -30,7 +30,7 @@ function AddSong() {
 
             while (nextUrl) {
                 const response = await fetch(nextUrl);
-                if (!response.ok) throw new Error('La respuesta del server fue erronea');
+                if (!response.ok) throw new Error('Error del servidor...');
                 const data = await response.json();
                 allAlbums = [...allAlbums, ...data.results];
                 nextUrl = data.next;
@@ -133,27 +133,29 @@ function AddSong() {
                     <SelectedSong onSelectSong={handleSongSelect} />
                 </div>
                 <form onSubmit={handleSubmit} className={`box ${
-                    theme === 'pink'
+                    theme === 'blue'
                     ? 'pinkBackground'
                     : 'blueBackground'
                 }`}>
-                    <div className="title">Sube una canción nueva</div>
-                    <div className="field">
-                        <label className="label">Título</label>
-                        <div className="control">
-                            <input
-                                className="input"
+
+<div className="field">
+<p class="title is-3 is-spaced">Nueva Cancion ♫  </p>
+  <label className="label">Titulo</label>
+  <div className="control">
+  <input
+                            className="input"
                                 type="text"
                                 placeholder="Título de la canción"
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
                                 required
-                                maxLength={255}
+                                maxLength={150}
                                 minLength={1}
-                            />
-                        </div>
-                    </div>
-                    <div className="field">
+    />
+  </div>
+</div>
+
+<div className="field">
                         <label className="label">Álbum</label>
                         <div className="control">
                             <div className="select">
@@ -170,44 +172,43 @@ function AddSong() {
                                             </option>
                                         ))
                                     ) : (
-                                        <option value="" disabled>No albums available</option>
+                                        <option value="" disabled>No hay albumes disponibles</option>
                                     )}
                                 </select>
                             </div>
                         </div>
-                    </div>
-                    <div className="field">
-                        <label className="label">Archivo de canción</label>
-                        <div className="control">
-                            <input
-                                className="input"
-                                type="file"
-                                accept="audio/*"
-                                onChange={(e) =>{ 
-                                    const file = e.target.files[0];
-                                    console.log("Selected file:", file);
-                                    setSongFile(file)
-                                }}
-                                required
-                            />
-                        </div>
-                    </div>
-                    <div className="field">
-                        <div className="control">
-                            <button type="submit" className="button is-primary">
-                                Agregar Canción
-                            </button>
-                        </div>
-                        <div className="title mt-5">Elige una canción</div>
-                        <div className="control m-4">
-                            <button type="button" className="button is-primary" onClick={handleBack}>
-                                Volver
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+</div>
+
+<div className="field">
+    <label className="label">Subir Archivo de Cancion...</label>
+        <div className="control">
+            <input
+                className="input"
+                type="file"
+                accept="audio/*"
+                onChange={(e) =>{ 
+                const file = e.target.files[0];
+                console.log("Selected file:", file);
+                setSongFile(file)
+                }}
+                required/>
         </div>
+ </div>
+
+
+
+<div className="field is-grouped">
+  <div className="control">
+    <button type="submit" className="button is-link">Agregar</button>
+  </div>
+  <div className="control">
+  <button type="button" className="button is-link" onClick={handleBack}>Volver</button>
+  </div>
+</div>
+
+    </form>
+    </div>
+</div>
     );
 }
 
