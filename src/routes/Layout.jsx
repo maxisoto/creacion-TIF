@@ -12,7 +12,7 @@ export default function Layout() {
             <AuthProvider>
                 <ThemeProvider>
                     <div>
-                        <Navbar appName={"Music Life"} />
+                        <Navbar appName={<p class="title is-4 is-spaced">Music Live ©</p>} />
                     </div>
                     <div>
                         <div className="my-element">
