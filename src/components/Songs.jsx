@@ -85,19 +85,15 @@ export default function Songs({ onSelectSong }) {
                 ? 'pinkBackground'
                 : 'blueBackground'
             }`}>
-            <form className="box has-background-custom search-form"
-           
-             onSubmit={handleSearch}>
+            <form className="box has-background-custom search-form" onSubmit={handleSearch}>
                     <div className="field" >
-                        
-                        <h6 class="subtitle is-6">Buscar por titulo:</h6>
-                        
+                        <span style={{ color: "white" }}>Buscar por Titulo: </span>
                         <div className="control">
                             <input className="input cardinput has-background-grey-dark has-text-white" type="text" name="title"
                              value={inputValue}
                              style={{
                                 transition: 'width 0.3s ease',
-                                width: `${inputWidth}px`
+                                width: `${250}px`
                             }}  onChange={handleChange}/>
                         </div>
                     </div>
