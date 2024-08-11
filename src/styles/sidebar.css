@@ -13,7 +13,7 @@
 }
 
 .choice.pinkBackground {
-    --choice-background: linear-gradient(135deg, #ff8c8c, #c45050);
+    --choice-background: linear-gradient(135deg,#404654, #404654);
 }
 
 .choice.blueBackground{
