@@ -1,25 +1,37 @@
 import { useAuth } from "../contexts/AuthContext";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 function ProfileImageModal({ isOpen, onClose, userId, onUpload }) {
     const { token } = useAuth("state");
 
-    const handleImageUpload = (event) => {
+    const handleImageUpload = async (event) => {
         event.preventDefault();
         const formData = new FormData();
         formData.append("image", event.target.image.files[0]);
 
-        onUpload.updateProfileImage(
-            `${import.meta.env.VITE_API_BASE_URL}users/profiles/${userId}/`,
-            {
-                method: "PATCH",
-                headers: {
-                    Authorization: `Token ${token}`,
-                },
-                body: formData,
-            }
-        );
+        try {
+            await onUpload.updateProfileImage(
+                `${import.meta.env.VITE_API_BASE_URL}users/profiles/${userId}/`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        Authorization: `Token ${token}`,
+                    },
+                    body: formData,
+                }
+            );
+        } catch (error) {
+            console.error("Image upload failed:", error);
+            // Mostrar mensaje de error al usuario
+        }
     };
+
+    useEffect(() => {
+        if (isOpen) {
+            document.querySelector("input[name='image']").focus();
+        }
+    }, [isOpen]);
 
     useEffect(() => {
         if (onUpload.profileImageData) {
@@ -30,9 +42,19 @@ function ProfileImageModal({ isOpen, onClose, userId, onUpload }) {
     if (!isOpen) return null;
 
     return (
-        <div className={`modal ${isOpen ? "is-active" : ""}`}>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className={`modal ${isOpen ? "is-active" : ""}`}
+        >
             <div className="modal-background" onClick={onClose}></div>
-            <div className="modal-card">
+            <motion.div
+                initial={{ scale: 0.9 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.9 }}
+                className="modal-card"
+            >
                 <header className="modal-card-head">
                     <p className="modal-card-title">Subir Imagen de Perfil</p>
                     <button
@@ -59,12 +81,16 @@ function ProfileImageModal({ isOpen, onClose, userId, onUpload }) {
                             type="submit"
                             disabled={onUpload.isLoadingUpdate}
                         >
-                            {onUpload.isLoadingUpdate ? "Subiendo..." : "Subir"}
+                            {onUpload.isLoadingUpdate ? (
+                                <span className="loader"></span>
+                            ) : (
+                                "Subir"
+                            )}
                         </button>
                     </form>
                 </section>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 }
 
