@@ -3,6 +3,7 @@ import { useAuth } from "../contexts/AuthContext";
 import useFetchProfile from "../hooks/useFetchProfile";
 import ProfileImageModal from "./ProfileImageModal";
 import defaultImage from "./imgs/userIMGDefault.png";
+import "../styles/profileimage.css";
 
 export default function ProfileInfo() {
     const { token} = useAuth("state");
@@ -87,6 +88,7 @@ export default function ProfileInfo() {
     if (isErrorProfile) return <p>Error: {isErrorProfile}</p>;
 
     return (
+        <div className="background-image">
         <div className="box box3 has-background-danger-70" >
         <div className="card"
         style={{
@@ -234,6 +236,7 @@ export default function ProfileInfo() {
         ) : (
             <p className="subtitle">No se encontraron datos del usuario.</p>
         )}
+    </div>
     </div>
     </div>
         

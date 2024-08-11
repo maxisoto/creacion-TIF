@@ -1,12 +1,14 @@
 import UserImage from "./UserImage";
 import { useAuth } from "../contexts/AuthContext";
 import { NavLink } from "react-router-dom";
+import "../styles/profileimage.css";
 
 export default function Profile() {
     const { firstName } = useAuth("state");
     
     return (
         <>
+            <></>
            <UserImage />
            <p className="subtitle is-4 pb-2">{firstName}
             

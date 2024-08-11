@@ -1,6 +1,7 @@
 import { useAuth } from "../contexts/AuthContext";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import "../styles/profileimage.css";
 
 function ProfileImageModal({ isOpen, onClose, userId, onUpload }) {
     const { token } = useAuth("state");
@@ -79,7 +80,7 @@ function ProfileImageModal({ isOpen, onClose, userId, onUpload }) {
                         <button
                             className="button is-primary"
                             type="submit"
-                            disabled={onUpload.isLoadingUpdate}
+                            enabled={onUpload.isLoadingUpdate}
                         >
                             {onUpload.isLoadingUpdate ? (
                                 <span className="loader"></span>

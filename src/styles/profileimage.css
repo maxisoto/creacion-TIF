@@ -1,0 +1,10 @@
+.background-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('src\components\imgs\LoginBackground.jpg');
+    background-size: 200% 200%;
+    animation: gradientBackground 15s ease infinite;
+    position: relative;
+}
