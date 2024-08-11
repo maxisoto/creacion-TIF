@@ -4,21 +4,21 @@ import { useEffect } from "react";
 function ProfileImageModal({ isOpen, onClose, userId, onUpload }) {
     const { token } = useAuth("state");
 
-    const handleImageUpload = (event) => {
+    const handleImageUpload = async (event) => {
         event.preventDefault();
         const formData = new FormData();
         formData.append("image", event.target.image.files[0]);
 
-        onUpload.updateProfileImage(
-            `${import.meta.env.VITE_API_BASE_URL}users/profiles/${userId}/`,
-            {
-                method: "PATCH",
-                headers: {
-                    Authorization: `Token ${token}`,
-                },
-                body: formData,
-            }
-        );
+        const response = await fetch('/upload', {
+            method: 'POST',
+            headers: {
+                Authorization: `Token ${token}`,
+            },
+            body: formData
+        });
+
+        const data = await response.json();
+        onUpload.updateProfileImage(data.imageUrl);
     };
 
     useEffect(() => {
@@ -69,3 +69,4 @@ function ProfileImageModal({ isOpen, onClose, userId, onUpload }) {
 }
 
 export default ProfileImageModal;
+
