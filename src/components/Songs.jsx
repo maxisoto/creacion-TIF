@@ -125,21 +125,25 @@ export default function Songs({ onSelectSong }) {
                             </div>
             
                 {isLoading && <p>Cargando más canciones...</p>}
-                <div className="buttons ">
-                <button
-                    className="button is-link "
-                    onClick={handlePrevPage}
-                    disabled={page === 1}
-                >
-                    Prev
-                </button>
-                <button
-                    className="button is-link"
-                    onClick={handleNextPage}
-                    disabled={!hasNextPage}
-                >
-                    Next
-                </button>
+                <div className="buttons">
+                                <button
+                                    className="button is-link"
+                                    onClick={handlePrevPage}
+                                    disabled={page === 1}
+                                >
+                                   <span class="icon">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </span>
+                                </button>
+                                <button
+                                    className="button is-link"
+                                    onClick={handleNextPage}
+                                    disabled={!hasNextPage}
+                                >
+                                    <span class="icon">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                </button>
                 </div>
             </div>
         </div>

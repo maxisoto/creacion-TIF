@@ -120,7 +120,7 @@ function AddSong() {
         navigate('/customPlaylist', { state: { playlistID } });
     };
 
-    if (isLoadingAlbum) return <h1>Cargando...</h1>;
+    if (isLoadingAlbum) return <progress class="progress is-small is-primary" max="100">15%</progress>;
     if (isErrorAlbum) return <h1>Error loading albums</h1>;
 
     return (

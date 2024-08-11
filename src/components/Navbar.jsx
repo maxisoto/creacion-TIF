@@ -70,7 +70,7 @@ export default function Navbar({appName}) {
                      onClick={logout}
                      className="navbar-item button is-danger"
                  >
-                     Logout
+                     Salir
                  </button>
                 ):(
                     <NavLink
