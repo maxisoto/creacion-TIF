@@ -88,9 +88,9 @@ export default function Songs({ onSelectSong }) {
             <form className= "box has-background-danger-70 search-form "
            
              onSubmit={handleSearch}>
-                    <div className="field " >
+                    <div className="field" >
                         
-                        <label className="label">Buscar Por Título:</label>
+                        <h6 class="subtitle is-6">Buscar por titulo:</h6>
                         
                         <div className="control">
                             <input className="input cardinput has-background-grey-dark has-text-white" type="text" name="title"
