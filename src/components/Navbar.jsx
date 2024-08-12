@@ -44,9 +44,7 @@ export default function Navbar({appName}) {
                     </NavLink>
                     <NavLink
                         to="/about"
-                        // style={({ isActive }) =>
-                        //     isActive ? { color: "red" } : {}
-                        // }
+                        
                         className={({ isActive, isPending, isTransitioning }) =>
                             [
                                 isPending ? "pending" : "",

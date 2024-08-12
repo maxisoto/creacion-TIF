@@ -27,7 +27,7 @@ export default function Songs({ onSelectSong }) {
         setIsError(false);
         let query = new URLSearchParams({
             page: page,
-            page_size: 9,  // Mantiene el tamaño de la página para cargar hasta 16 canciones
+            page_size: 9,  
             ...searchTitle,
         }).toString();
         try {
@@ -82,7 +82,7 @@ export default function Songs({ onSelectSong }) {
         setInputValue("");
     }
 
-    const handleSongClick = (songFile) => {  // Cambiado a handleSongClick
+    const handleSongClick = (songFile) => {  
         setCurrentSong(songFile);
         if (audioRef.current) {
             audioRef.current.load();
@@ -122,7 +122,7 @@ export default function Songs({ onSelectSong }) {
                         <div className="song-list">
                             {songs.map((song) => (
                                 <div key={song.id} className="song-list-item">
-                                    <Card song={song} onClick={handleSongClick} /> {/* Cada ítem ahora es un botón */}
+                                    <Card song={song} onClick={handleSongClick} /> 
                                 </div>
                             ))}
                         </div>
@@ -148,7 +148,7 @@ export default function Songs({ onSelectSong }) {
                 </div>
             </div>
 
-            {/* Reproductor de música único */}
+            
             {currentSong && (
                 <div className="music-player">
                     <div className="audio-controls">

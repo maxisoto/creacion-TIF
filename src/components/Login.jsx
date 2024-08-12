@@ -95,7 +95,7 @@ function Login() {
                         <div className="control has-icons-left">
                             <input
                                 className="input has-background-grey-dark has-text-white"
-                                type={isPasswordVisible ? "text" : "password"} // Cambio entre texto y contraseña
+                                type={isPasswordVisible ? "text" : "password"} 
                                 name="password"
                                 id="password"
                                 required
@@ -105,7 +105,7 @@ function Login() {
                                 <i className="fas fa-lock"></i>
                             </span>
                             <span className="show-password-toggle" onClick={togglePasswordVisibility}>
-                                {isPasswordVisible ? "Ocultar" : "Mostrar"} {/* Cambia entre Mostrar y Ocultar */}
+                                {isPasswordVisible ? "Ocultar" : "Mostrar"} 
                             </span>
                         </div>
                     </div>

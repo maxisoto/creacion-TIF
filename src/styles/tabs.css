@@ -1,4 +1,4 @@
-/* Estilos generales para la caja de pestañas */
+
 .tabs-container {
     padding: 10px;
     border-radius: 10px;
@@ -6,7 +6,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Fondo según el tema */
+
 .pinkBackground {
     background-color: #ffe4e1;
 }
@@ -15,14 +15,14 @@
     background-color: #e0f7fa;
 }
 
-/* Estilos de la etiqueta */
+
 .label {
     font-weight: bold;
     margin-right: 10px;
     color:aquamarine;
 }
 
-/* Estilos básicos de los enlaces de pestañas */
+
 .tab-link {
     text-decoration: none;
     color: #e4dede;
@@ -34,7 +34,7 @@
     z-index: 1;
 }
 
-/* Efecto al pasar el mouse sobre el enlace */
+
 .tab-link:hover {
     background-color: #aac1da;
     color: white;
@@ -42,7 +42,7 @@
     transform: translateY(-3px);
 }
 
-/* Efecto de la pestaña activa */
+
 .is-active {
     background-color: #007bff;
     color: white;
@@ -51,12 +51,12 @@
     animation: pulse 0.5s ease-in-out;
 }
 
-/* Animación de zoom al pasar el mouse */
+
 .tab-link:hover {
     transform: scale(1.05);
 }
 
-/* Animación de selección */
+
 @keyframes pulse {
     0% {
         transform: scale(1);
