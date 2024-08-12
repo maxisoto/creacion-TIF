@@ -103,38 +103,6 @@ function SideBar({playlistUpdated, setPlaylistUpdated, onPlaylistSelect}) {
                         </ul>
                     )}
                 </li>
-                <li>
-                    <SideBarChoice title={"Albumes"} />
-                    {isPlaylistExtended && (
-                        <ul>
-                            <li>
-                                <SideBarChoice title={"Crear Album"} />
-                            </li>
-                            <li>
-                                <SideBarChoice title={"Modificar Album"} />
-                            </li>
-                            <li>
-                                <SideBarChoice title={"Eliminar Album"}  />
-                            </li>
-                        </ul>
-                    )}
-                </li>
-                <li>
-                    <SideBarChoice title={"Artistas"} />
-                    {isPlaylistExtended && (
-                        <ul>
-                            <li>
-                                <SideBarChoice title={"Crear Album"} />
-                            </li>
-                            <li>
-                                <SideBarChoice title={"Modificar Album"} />
-                            </li>
-                            <li>
-                                <SideBarChoice title={"Eliminar Album"}  />
-                            </li>
-                        </ul>
-                    )}
-                </li>
             </ul>
             <p className="menu-label">Playlist</p>
             <ul className="menu-list">

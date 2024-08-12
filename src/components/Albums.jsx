@@ -85,7 +85,7 @@ export default function Albums() {
                             ? 'pinkBackground'
                             : 'blueBackground'
                         }`}>
-                        <h2 className="title">Álbumes</h2>
+                        <h2 className="title">Álbunes</h2>
                         <div className="columns">
                             {albums.map((album) => (
                                   <div key={album.id} className="column is-one-quarter">

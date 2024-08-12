@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('src\assets\musica-arte-scaled-q3s9zjmsgnvmn73optv6vm808qaju2jakn089uojbg.jpg');
+    background-image: url('src\components\imgs\LoginBackground.jpg');
     background-size: 200% 200%;
-    position: static;
+    position: relative;
 }
