@@ -17,6 +17,84 @@
   }
   
 
+.song-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* tres columnas de igual tamaño */
+    gap: 20px; /* Espacio reducido entre las canciones */
+    width: 100%;
+}
+
+.song-list-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1px; /* Reducción del padding para hacer el cuadro más pequeño */
+    border: 1px solid #ccc; /* Borde alrededor de cada canción */
+    border-radius: 6px; /* Ajuste del radio para que los bordes sean menos pronunciados */
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Reducción de la sombra para un diseño más limpio */
+    transition: background-color 0.3s ease;
+}
+
+.song-list-item:hover {
+    background-color: #f0f0f0;
+}
+
 .card {
-    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 8px; /* Ajuste del padding interno */
+}
+
+.card-image {
+    margin-right: 8px; /* Espacio reducido entre la imagen y el contenido */
+}
+
+.media-content-with-icon {
+    display: flex;
+    align-items: center;
+}
+
+.song-icon {
+    margin-right: 8px; /* Espacio reducido entre el ícono y el título */
+    width: 20px; /* Tamaño más pequeño para el ícono */
+    height: 20px; /* Tamaño más pequeño para el ícono */
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.title.is-4 {
+    margin: 0;
+    font-size: 1rem; /* Tamaño de fuente reducido */
+}
+
+
+
+.music-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.music-player audio {
+    width: 95%; /* Ajusta este valor según necesites */
+    max-width: 1200px; /* Limita el ancho máximo si es necesario */
+}
+
+.music-player .audio-controls {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Limita el ancho máximo si es necesario */
+    margin: 0 auto; /* Centra el reproductor */
 }
