@@ -110,6 +110,6 @@ const App = createBrowserRouter([
             },
         ],
     },
-], {basename: "/music-life/"});
+], {basename: "/creacion-TIF/"});
 
 export default App;
