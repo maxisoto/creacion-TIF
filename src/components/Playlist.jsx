@@ -114,7 +114,7 @@ function Playlist() {
                 : 'blueBackground'
             }`}>
                  <h1 className="title">Canciones de {playlistData.name}</h1>
-                <button className="button is-link mt-5" onClick={handleAddSong}>Agregar canción</button>
+                <button className="button is-link mt-5" onClick={handleAddSong}><span><i class="fa a-solid fa-plus"></i></span></button>
                 <div className="columns is-multiline">
                     {songs.length > 0 ? (
                         songs.map((song) => (
