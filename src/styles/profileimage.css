@@ -1,8 +1,9 @@
 .background-image {
-    display: inside;
+    display: outside;
+    justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('src\components\imgs\fondo4.jpg');
-    background-size: 100% 100%;
+    background-image: url('src\components\imgs\LoginBackground.jpg');
+    background-size: 200% 200%;
     position: relative;
 }
