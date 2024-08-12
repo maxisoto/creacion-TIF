@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "../styles/song.css";
 import Card from "./Card";
 import useTheme from "../hooks/useTheme";
+import '../index.css';
 
 export default function Songs({ onSelectSong }) {
     const { theme } = useTheme();
@@ -13,6 +14,8 @@ export default function Songs({ onSelectSong }) {
     const [searchTitle, setSearchTitle] = useState({});
     const [inputValue, setInputValue] = useState("");
     const [inputWidth, setInputWidth] = useState(100);
+    const [currentSong, setCurrentSong] = useState(null);
+    const audioRef = useRef(null);
 
     const handleChange = (e) => {
         setInputValue(e.target.value);
@@ -24,17 +27,19 @@ export default function Songs({ onSelectSong }) {
         setIsError(false);
         let query = new URLSearchParams({
             page: page,
-            page_size: 4,
+            page_size: 9,  // Mantiene el tamaño de la página para cargar hasta 16 canciones
             ...searchTitle,
         }).toString();
         try {
-            const response = await fetch(
-                `http://sandbox.academiadevelopers.com/harmonyhub/songs/?${query}`
-            );
+            let url = `https://sandbox.academiadevelopers.com/harmonyhub/songs/?${query}`;
+            const response = await fetch(url);
             if (!response.ok) {
                 throw new Error("No se pudieron cargar las canciones");
             }
             const data = await response.json();
+            if (data.next && data.next.startsWith('http://')) {
+                data.next = data.next.replace('http://', 'https://');
+            }
             setSongs(data.results || []);
             setHasNextPage(!!data.next);
         } catch (error) {
@@ -59,14 +64,13 @@ export default function Songs({ onSelectSong }) {
             setPage((prevPage) => prevPage - 1);
         }
     };
+
     function handleSearch(event) {
         event.preventDefault();
         const searchForm = new FormData(event.target);
-
         const newSearchTitle = {};
 
         searchForm.forEach((value, key) => {
-            
             if (value) {
                 newSearchTitle[key] = value;
             }
@@ -75,74 +79,86 @@ export default function Songs({ onSelectSong }) {
         setSearchTitle(newSearchTitle);
         setSongs([]);
         setPage(1);
-       
+        setInputValue("");
     }
-        
+
+    const handleSongClick = (songFile) => {  // Cambiado a handleSongClick
+        setCurrentSong(songFile);
+        if (audioRef.current) {
+            audioRef.current.load();
+            audioRef.current.play();
+        }
+    };
+
     return (
-        <div className= "box2" >
+        <div className="box2">
             <div className={` ${
                 theme === 'pink'
                 ? 'pinkBackground'
                 : 'blueBackground'
             }`}>
-            <form className="box has-background-custom search-form" onSubmit={handleSearch}>
-                    <div className="field" >
-                        <span style={{ color: "white" }}>Buscar por Titulo: </span>
+                <form className="box has-background-danger-70 search-form" onSubmit={handleSearch}>
+                    <div className="field">
+                        <label className="label">Buscar Por Título:</label>
                         <div className="control">
-                            <input className="input cardinput has-background-grey-dark has-text-white" type="text" name="title"
-                             value={inputValue}
-                             style={{
-                                transition: 'width 0.3s ease',
-                                width: `${250}px`
-                            }}  onChange={handleChange}/>
+                            <input 
+                                className="input cardinput has-background-grey-dark has-text-white" 
+                                type="text" 
+                                name="title"
+                                value={inputValue}
+                                placeholder="Search..."
+                                style={{transition: 'width 0.3s ease', width: `${inputWidth}px`}}
+                                onChange={handleChange}
+                            />
                         </div>
                     </div>
-                        <button className="button is-primary" type="submit">
+                    <button className="button is-primary" type="submit">
                         <i className="fa fa-search" aria-hidden="true"></i>
-                        </button>
-                    
+                    </button>
                 </form>
-                              <div className={`box ${
-                                theme === 'pink'
-                                ? 'pinkBackground'
-                                : 'blueBackground'
-                              }`}>
-                              <div className="box2">
-                <h2 className="title">Canciones</h2>
-                <div className="columns" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: 'fit-content'}}>
-                    {songs.map((song) => (
-                        <div key={song.id} className=" box2 column is-one-quarter" onClick={() => onSelectSong(song.id)}>
-                            <Card song={song} />
+                <div className={`box ${theme === 'pink' ? 'pinkBackground' : 'blueBackground'}`}>
+                    <div className="box2" style={{backgroundColor: '#e98686', borderRadius: '0.75rem'}}>
+                        <h2 className="title">Canciones</h2>
+                        <div className="song-list">
+                            {songs.map((song) => (
+                                <div key={song.id} className="song-list-item">
+                                    <Card song={song} onClick={handleSongClick} /> {/* Cada ítem ahora es un botón */}
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                        {isLoading && <p>Cargando más canciones...</p>}
+                        {isError && <p>Error al cargar canciones...</p>}
+                    </div>
                 </div>
-                                
-                              </div>
-                            </div>
-            
-                {isLoading && <p>Cargando más canciones...</p>}
                 <div className="buttons">
-                                <button
-                                    className="button is-link"
-                                    onClick={handlePrevPage}
-                                    disabled={page === 1}
-                                >
-                                   <span class="icon">
-                                        <i class="fas fa-arrow-left"></i>
-                                    </span>
-                                </button>
-                                <button
-                                    className="button is-link"
-                                    onClick={handleNextPage}
-                                    disabled={!hasNextPage}
-                                >
-                                    <span class="icon">
-                                        <i class="fas fa-arrow-right"></i>
-                                    </span>
-                                </button>
+                    <button
+                        className="button is-link"
+                        onClick={handlePrevPage}
+                        disabled={page === 1}
+                    >
+                        Anterior
+                    </button>
+                    <button
+                        className="button is-link"
+                        onClick={handleNextPage}
+                        disabled={!hasNextPage}
+                    >
+                        Siguiente
+                    </button>
                 </div>
             </div>
+
+            {/* Reproductor de música único */}
+            {currentSong && (
+                <div className="music-player">
+                    <div className="audio-controls">
+                        <audio ref={audioRef} controls>
+                            <source src={currentSong} type="audio/mpeg" />
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
-

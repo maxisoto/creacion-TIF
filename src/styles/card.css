@@ -1,0 +1,79 @@
+.song-list-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    width: 100%;
+}
+
+.song-list-item:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05); /* Efecto de escalado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+.song-list-item:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+
+.card-image {
+    margin-right: 8px;
+}
+
+.media-content-with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Asegura que el contenido y el ícono de play estén en extremos opuestos */
+    width: 100%;
+}
+
+.song-icon {
+    margin-right: 0px;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.title.is-4 {
+    margin: 0;
+    font-size: 1rem;
+    flex-grow: 1; /* Permite que el título ocupe el espacio restante entre el ícono y el botón de play */
+}
+
+.play-icon {
+    width: 30px; /* Ajusta el tamaño del ícono de play */
+    height: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.tooltip {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
