@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import useTheme from "../hooks/useTheme";
-import '../styles/tabs.css'; // Importa el archivo CSS
+import '../styles/tabs.css'; 
 
 export default function Tabs() {
     const { theme } = useTheme();

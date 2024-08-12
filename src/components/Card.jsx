@@ -1,8 +1,8 @@
 import imgDefault from "../components/imgs/AT.jpeg";
 import useTheme from "../hooks/useTheme";
 import '../styles/card.css';
-import icono from '../assets/fondo5.jpg'; // Importa la imagen del ícono de la canción
-import playIcon from '../assets/play.png'; // Importa la imagen del ícono de play
+import icono from '../assets/fondo5.jpg'; 
+import playIcon from '../assets/play.png'; 
 
 export default function Card({ song, onClick }) {
     const { theme } = useTheme();
@@ -20,13 +20,13 @@ export default function Card({ song, onClick }) {
                     </figure>
                 </div>
                 <div className="media-content-with-icon">
-                    <img src={icono} alt="Icono" className="song-icon" /> {/* Imagen del ícono */}
+                    <img src={icono} alt="Icono" className="song-icon" /> 
                     <div className="media-content">
                         <p className="title is-4">{song.title}</p>
                     </div>
-                    <img src={playIcon} alt="Play" className="play-icon" /> {/* Imagen del ícono de play */}
+                    <img src={playIcon} alt="Play" className="play-icon" /> 
                 </div>
-                <span className="tooltip">Reproducir ahora</span> {/* Tooltip flotante */}
+                <span className="tooltip">Reproducir ahora</span> 
             </div>
         </button>
     );

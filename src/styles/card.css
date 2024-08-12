@@ -17,8 +17,8 @@
 
 .song-list-item:hover {
     background-color: #e0e0e0;
-    transform: scale(1.05); /* Efecto de escalado */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+    transform: scale(1.05); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .song-list-item:hover .tooltip {
@@ -39,7 +39,7 @@
 .media-content-with-icon {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Asegura que el contenido y el ícono de play estén en extremos opuestos */
+    justify-content: space-between; 
     width: 100%;
 }
 
@@ -54,11 +54,11 @@
 .title.is-4 {
     margin: 0;
     font-size: 1rem;
-    flex-grow: 1; /* Permite que el título ocupe el espacio restante entre el ícono y el botón de play */
+    flex-grow: 1; 
 }
 
 .play-icon {
-    width: 30px; /* Ajusta el tamaño del ícono de play */
+    width: 30px; 
     height: 30px;
     margin-left: 20px;
     margin-right: 20px;
