@@ -27,7 +27,7 @@ export default function Albums() {
     setIsError(false);
     try {
         const response = await fetch(
-            `http://sandbox.academiadevelopers.com/harmonyhub/albums/?page=${pageNumber}&page_size=4`
+            `https://sandbox.academiadevelopers.com/harmonyhub/albums/?page=${pageNumber}&page_size=4`
         );
         if (!response.ok) {
             throw new Error("No se pudieron cargar los álbumes");

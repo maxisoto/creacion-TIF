@@ -27,7 +27,7 @@ export default function Artists() {
     setIsError(false);
     try {
         const response = await fetch(
-            `http://sandbox.academiadevelopers.com/harmonyhub/artists/?page=${pageNumber}&page_size=4`
+            `https://sandbox.academiadevelopers.com/harmonyhub/artists/?page=${pageNumber}&page_size=4`
         );
         if (!response.ok) {
             throw new Error("Error cargando los artistas...");
