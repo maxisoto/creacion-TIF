@@ -129,9 +129,6 @@ function AddSong() {
                 <SideBar />
             </div>
             <div className="column">
-                <div className="box">
-                    <SelectedSong onSelectSong={handleSongSelect} />
-                </div>
                 <form onSubmit={handleSubmit} className={`box ${
                     theme === 'blue'
                     ? 'pinkBackground'
